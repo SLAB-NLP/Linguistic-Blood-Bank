@@ -163,7 +163,7 @@ bash src/scripts/eval_model_mrr.sh MODEL_DIR_PATH MODEL_CONFIG_PATH EVAL_DATA OU
 
 ### QA
 
-## Web exploration
+## Interactive Exploration
 
 ### url 
 To view our results please visit: https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py
