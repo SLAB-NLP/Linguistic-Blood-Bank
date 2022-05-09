@@ -69,8 +69,7 @@ def show_tsne(x, how_to_calc, color_paired=False):
     return fig
 
 
-def init_data(df_path, feat_idx2val_path, lang_feat_df_path):
-    lang_list = "ja ko ta te hu fi zh my ar he cy ga hi ne en de hy el fr pms ru sv".split()
+def init_data(df_path, feat_idx2val_path, lang_feat_df_path, lang_list):
     lang_list.sort()
     feat_idx2value = pickle.load(open(feat_idx2val_path, 'rb'))
     feat_value2idx = {}
@@ -103,6 +102,7 @@ def init_data(df_path, feat_idx2val_path, lang_feat_df_path):
                  'malagasy': 'ma', 'haitian': 'ha', 'yoruba': 'yo', 'piedmontese': 'pms', 'yiddish': 'yi',
                  'amharic': 'am', 'ladino': 'lad', 'welsh': 'cy', 'irish': 'ga', }
     name2wiki = dict(zip(wiki2name.values(), wiki2name.keys()))
+
     return feat_df, feat_idx2value, feat_value2idx, full_df, lang_list, name2wiki
 
 
@@ -111,10 +111,11 @@ def main(args):
     idx2val_path=args.idx2val_df_path
     lang_feat_df_path=args.lang_feat_df_path
     COLORS=get_colors()
+    lang_list=args.lang_list
 
     # Read dataset
 
-    feat_df, feat_idx2value, feat_value2idx, full_df, lang_list, name2wiki = init_data(df_path=df_path, feat_idx2val_path=idx2val_path, lang_feat_df_path=lang_feat_df_path)
+    feat_df, feat_idx2value, feat_value2idx, full_df, lang_list, name2wiki = init_data(df_path=df_path, feat_idx2val_path=idx2val_path, lang_feat_df_path=lang_feat_df_path, lang_list=lang_list)
 
     c1, c2 = st.columns((1, 2))
 
@@ -351,7 +352,6 @@ if __name__ == '__main__':
     parser.add_argument('-d', '--df_path', type=str, default="data/3_epochs_ft_normalized_0shot_False_mapped_False.csv")
     parser.add_argument('-i', '--idx2val_df_path', type=str, default='data/featidx2value.pkl')
     parser.add_argument('-l', '--lang_feat_df_path', type=str, default="data/lang_features_df.csv")
-    #TODO - try to make the nesting less related (option variable)
-    #TODO - datahandler object that holds the df, feat_df etc and is moved between the branching instead of many arrays and dfs.
+    parser.add_argument('--lang_list', nargs="+", default="ja ko ta te hu fi zh my ar he cy ga hi ne en de hy el fr pms ru sv".split())
     args = parser.parse_args()
     main(args)
