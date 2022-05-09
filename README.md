@@ -24,15 +24,15 @@
 # language-graph
 Supporting repo for
 [Balanced Data Approach for Evaluating Cross-Lingual Transfer: Mapping
-the Linguistic Blood Bank](soon)
-Dan Malkin, Tomasz Limisiewicz, Gabriel Stanovsky,
+the Linguistic Blood Bank](soon) <br>
+_Dan Malkin, [Tomasz Limisiewicz](https://tomlimi.github.io/), [Gabriel Stanovsky](https://gabrielstanovsky.github.io/)_, <br>
 NAACL 2022.
 
 ## Web exploration
 
 ### url 
 
-To view our results please visit: https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py
+To view our results please visit [this url](https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py)
 
 #### run evaluations and gather results
 
