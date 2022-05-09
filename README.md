@@ -32,9 +32,15 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # language-graph
-**tested on python 3.7**
+Supporting repo for [Balanced Data Approach for Evaluating Cross-Lingual Transfer: Mapping
+the Linguistic Blood Bank](soon), Dan Malkin, Tomasz Limisiewicz, Gabriel Stanovsky, NAACL 2022.
+
+
 
 ## Installation and Requirements
+Tested on python 3.7.
+
+
 from the root directory run:
 ```
 pip install -r requirements.txt
