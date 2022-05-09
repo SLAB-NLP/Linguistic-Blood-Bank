@@ -157,22 +157,23 @@ bash src/scripts/eval_model_mrr.sh MODEL_DIR_PATH MODEL_CONFIG_PATH EVAL_DATA OU
 
 ## Downstream training
 
-### POS tagging
+To train the downstream task ontop of a given langauge model, follow the instructions at: https://github.com/google-research/xtreme .
 
-### NER
+To truncate the data as we did, limit the data in the files outputed by https://github.com/google-research/xtreme/blob/master/utils_preprocess.py to the desired example number (2000 for POS, 5000 for NER). This can be done manually by truncating the files or by changing the preprocess function to stop after X examples. 
 
-### QA
+Make sure to additionally preprocess the non-english training files as well (the default behaviour process only english train files) using the same code. 
 
-## Interactive Exploration
+## Web exploration
 
 ### url 
+
 To view our results please visit: https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py
 
-### how to deploy a visualization tool
+#### run evaluations and gather results
 
-#### run evaluations
+In order to deploy our results locally skip to 'run streamlit'.
 
-#### gather results
+To deploy your own results, run evaluations on all of your desired models as specified in the Evaluate MRR section. Then gather all of the results to a dataframe and save it in a location of your choice. Note that the dynamic visualization is intended for bidirectional relations, so make sure to evaluate all couples in your langauge set. Currently, we only support evaluation on one of the 22 languages used in our experiments. To see your results, pass the gathered dataframe explicilty using '--df_path' when calling 'launch_interface.py', as explained next. 
 
 #### run streamlit
 Install requirements found in language-graph/visualization_tool dir using:
@@ -184,9 +185,3 @@ Then, in your terminal open the project root directory and run:
 streamlit run visualization_tool/launch_interface.py --server.port=PORT 
 ```
 Finally, visit the generate URL, printed in your console.
-
-## how tos: 
-### add a new language
-### add ds tasks
-### evaluate different metrics
-### add new features to WALS features
