@@ -3,37 +3,54 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [language-graph](#language-graph)
+  - [Web exploration](#web-exploration)
+    - [url](#url)
+      - [run evaluations and gather results](#run-evaluations-and-gather-results)
+      - [run streamlit](#run-streamlit)
   - [Installation and Requirements](#installation-and-requirements)
   - [Getting the data](#getting-the-data)
     - [Download](#download)
-    - [Information measures](#information-measures)
+  - [Information measures](#information-measures)
   - [Training the models](#training-the-models)
     - [Before you start: training configurations](#before-you-start-training-configurations)
     - [Tokenizer](#tokenizer)
     - [Base model](#base-model)
     - [Finetuned model on top of an existing one](#finetuned-model-on-top-of-an-existing-one)
-    - [Evaluate mrr](#evaluate-mrr)
+    - [Evaluate MRR](#evaluate-mrr)
   - [Downstream training](#downstream-training)
-    - [POS tagging](#pos-tagging)
-    - [NER](#ner)
-    - [QA](#qa)
-  - [Web exploration](#web-exploration)
-    - [url](#url)
-    - [how to deploy a visualization tool](#how-to-deploy-a-visualization-tool)
-      - [run evaluations](#run-evaluations)
-      - [gather results](#gather-results)
-      - [run streamlit](#run-streamlit)
-  - [how tos:](#how-tos)
-    - [add a new language](#add-a-new-language)
-    - [add ds tasks](#add-ds-tasks)
-    - [evaluate different metrics](#evaluate-different-metrics)
-    - [add new features to WALS features](#add-new-features-to-wals-features)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # language-graph
-Supporting repo for [Balanced Data Approach for Evaluating Cross-Lingual Transfer: Mapping
-the Linguistic Blood Bank](soon), Dan Malkin, Tomasz Limisiewicz, Gabriel Stanovsky, NAACL 2022.
+Supporting repo for
+[Balanced Data Approach for Evaluating Cross-Lingual Transfer: Mapping
+the Linguistic Blood Bank](soon)
+Dan Malkin, Tomasz Limisiewicz, Gabriel Stanovsky,
+NAACL 2022.
+
+## Web exploration
+
+### url 
+
+To view our results please visit: https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py
+
+#### run evaluations and gather results
+
+In order to deploy our results locally skip to 'run streamlit'.
+
+To deploy your own results, run evaluations on all of your desired models as specified in the Evaluate MRR section. Then gather all of the results to a dataframe and save it in a location of your choice. Note that the dynamic visualization is intended for bidirectional relations, so make sure to evaluate all couples in your langauge set. Currently, we only support evaluation on one of the 22 languages used in our experiments. To see your results, pass the gathered dataframe explicilty using '--df_path' when calling 'launch_interface.py', as explained next. 
+
+#### run streamlit
+Install requirements found in language-graph/visualization_tool dir using:
+```
+pip install -r requirements.txt
+```
+Then, in your terminal open the project root directory and run:
+```
+streamlit run visualization_tool/launch_interface.py --server.port=PORT 
+```
+Finally, visit the generate URL, printed in your console.
+
 
 
 
@@ -169,25 +186,3 @@ To truncate the data as we did, limit the data in the files outputed by https://
 
 Make sure to additionally preprocess the non-english training files as well (the default behaviour process only english train files) using the same code. 
 
-## Web exploration
-
-### url 
-
-To view our results please visit: https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py
-
-#### run evaluations and gather results
-
-In order to deploy our results locally skip to 'run streamlit'.
-
-To deploy your own results, run evaluations on all of your desired models as specified in the Evaluate MRR section. Then gather all of the results to a dataframe and save it in a location of your choice. Note that the dynamic visualization is intended for bidirectional relations, so make sure to evaluate all couples in your langauge set. Currently, we only support evaluation on one of the 22 languages used in our experiments. To see your results, pass the gathered dataframe explicilty using '--df_path' when calling 'launch_interface.py', as explained next. 
-
-#### run streamlit
-Install requirements found in language-graph/visualization_tool dir using:
-```
-pip install -r requirements.txt
-```
-Then, in your terminal open the project root directory and run:
-```
-streamlit run visualization_tool/launch_interface.py --server.port=PORT 
-```
-Finally, visit the generate URL, printed in your console.
