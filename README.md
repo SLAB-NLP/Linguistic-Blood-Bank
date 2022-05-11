@@ -24,7 +24,7 @@
 # language-graph
 Supporting repo for
 [Balanced Data Approach for Evaluating Cross-Lingual Transfer: Mapping
-the Linguistic Blood Bank](soon) <br>
+the Linguistic Blood Bank](https://arxiv.org/abs/2205.04086) <br>
 _Dan Malkin, [Tomasz Limisiewicz](https://tomlimi.github.io/), [Gabriel Stanovsky](https://gabrielstanovsky.github.io/)_, <br>
 NAACL 2022.
 
