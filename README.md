@@ -2,17 +2,12 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [language-graph](#language-graph)
-  - [Web exploration](#web-exploration)
-    - [url](#url)
-      - [run evaluations and gather results](#run-evaluations-and-gather-results)
-      - [run streamlit](#run-streamlit)
-  - [Installation and Requirements](#installation-and-requirements)
-  - [Getting the data](#getting-the-data)
-    - [Download](#download)
-  - [Information measures](#information-measures)
-  - [Training the models](#training-the-models)
-    - [Before you start: training configurations](#before-you-start-training-configurations)
+- [The Linguistic Blood Bank](#the-linguistic-blood-bank)
+  - [Interactive-Exploration](#interactive-exploration)
+  - [Reproducing our results](#reproducing-our-results)
+    - [Installation and Requirements](#installation-and-requirements)
+  - [Running our Code](#running-our-code)
+  - [Training Our models](#training-our-models)
     - [Tokenizer](#tokenizer)
     - [Base model](#base-model)
     - [Finetuned model on top of an existing one](#finetuned-model-on-top-of-an-existing-one)
@@ -21,7 +16,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# language-graph
+# The Linguistic Blood Bank
 Supporting repo for
 [Balanced Data Approach for Evaluating Cross-Lingual Transfer: Mapping
 the Linguistic Blood Bank](https://arxiv.org/abs/2205.04086) <br>
@@ -30,13 +25,14 @@ NAACL 2022.
 
 ## Interactive-Exploration
 
-To view and interact with our results please visit [this url](https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py). 
+<b>To view and interact with our results:</b> visit [this url](https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py). 
 
 If you want to deploy this server locally, see [instructions here](running_sever_locally.md)
 
 
+## Reproducing our results
 
-## Installation and Requirements
+### Installation and Requirements
 
 from the root directory run:
 ```
@@ -45,13 +41,10 @@ pip install -r requirements.txt
 
 Tested on python 3.7.
 
-## Getting the data
+## Running our Code
 
-### Download
-Download the processed wikipedia data at https://drive.google.com/file/d/1q5eOxc-cNT1YXV2eVG8jqZBLsPEQ2_Ld/view?usp=sharing and unpack to a desired directory.
-
-## Information measures
-To get the information approximation we use in our work, first save all tokens of a wanted corpus into a file TOKENS_FILE. This should be done by simply running the tokenizer on the data's line, and writing each token to a file on it's own line. Then run the following from the project's root directory:
+* Download the processed wikipedia data at https://drive.google.com/file/d/1q5eOxc-cNT1YXV2eVG8jqZBLsPEQ2_Ld/view?usp=sharing and unpack to a desired directory.
+* To get the information approximation we use in our work, first save all tokens of a wanted corpus into a file TOKENS_FILE. This should be done by simply running the tokenizer on the data's line, and writing each token to a file on it's own line. Then run the following from the project's root directory:
 ```
 python data/info_analysis.py -t TOKENS_FILE
 ```
@@ -72,10 +65,11 @@ python data/info_analysis.py -t data/example_files/example_tokens.txt
 INFO:root:total tokens:6, unique tokens:3, ratio:0.5
 ```
 
-## Training the models
+## Training Our models
 
-### Before you start: training configurations
-I order to run a training you must create a training configuration which includes the paths to the training data, model parameters, and training procedure parameters.
+*Before you start: training configurations*
+
+In order to run a training you must create a training configuration which includes the paths to the training data, model parameters, and training procedure parameters.
 Each run get specification via a model config and a training procedure config. To create a config run the following:
 ```
 python src/model/train_utils.py ARGS
