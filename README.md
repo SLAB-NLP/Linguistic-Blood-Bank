@@ -30,43 +30,26 @@ NAACL 2022.
 
 ## Interactive-Exploration
 
-### url 
+To view and interact with our results please visit [this url](https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py). 
 
-To view our results please visit [this url](https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py)
-
-#### run evaluations and gather results
-
-In order to deploy our results locally skip to 'run streamlit'.
-
-To deploy your own results, run evaluations on all of your desired models as specified in the Evaluate MRR section. Then gather all of the results to a dataframe and save it in a location of your choice. Note that the dynamic visualization is intended for bidirectional relations, so make sure to evaluate all couples in your langauge set. Currently, we only support evaluation on one of the 22 languages used in our experiments. To see your results, pass the gathered dataframe explicilty using '--df_path' when calling 'launch_interface.py', as explained next. 
-
-#### run streamlit
-Install requirements found in language-graph/visualization_tool dir using:
-```
-pip install -r requirements.txt
-```
-Then, in your terminal open the project root directory and run:
-```
-streamlit run visualization_tool/launch_interface.py --server.port=PORT 
-```
-Finally, visit the generate URL, printed in your console.
-
+If you want to deploy this server locally, see [instructions here](running_sever_locally.md)
 
 
 
 ## Installation and Requirements
-Tested on python 3.7.
-
 
 from the root directory run:
 ```
 pip install -r requirements.txt
 ```
 
+Tested on python 3.7.
+
 ## Getting the data
 
 ### Download
 Download the processed wikipedia data at https://drive.google.com/file/d/1q5eOxc-cNT1YXV2eVG8jqZBLsPEQ2_Ld/view?usp=sharing and unpack to a desired directory.
+
 ## Information measures
 To get the information approximation we use in our work, first save all tokens of a wanted corpus into a file TOKENS_FILE. This should be done by simply running the tokenizer on the data's line, and writing each token to a file on it's own line. Then run the following from the project's root directory:
 ```
