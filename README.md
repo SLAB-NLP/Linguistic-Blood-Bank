@@ -28,7 +28,7 @@ the Linguistic Blood Bank](https://arxiv.org/abs/2205.04086) <br>
 _Dan Malkin, [Tomasz Limisiewicz](https://tomlimi.github.io/), [Gabriel Stanovsky](https://gabrielstanovsky.github.io/)_, <br>
 NAACL 2022.
 
-## Web exploration
+## Interactive-Exploration
 
 ### url 
 
