@@ -6,8 +6,8 @@
   - [Interactive-Exploration](#interactive-exploration)
   - [Reproducing our results](#reproducing-our-results)
     - [Installation and Requirements](#installation-and-requirements)
-  - [Running our Code](#running-our-code)
-  - [Training Our models](#training-our-models)
+  - [Reproducing Evaluations with Pretrained Models](#reproducing-evaluations-with-pretrained-models)
+  - [Training from Scratch](#training-from-scratch)
     - [Tokenizer](#tokenizer)
     - [Base model](#base-model)
     - [Finetuned model on top of an existing one](#finetuned-model-on-top-of-an-existing-one)
@@ -41,14 +41,14 @@ pip install -r requirements.txt
 
 Tested on python 3.7.
 
-## Running our Code
+## Reproducing Evaluations with Pretrained Models
 
 * Download the processed wikipedia data at https://drive.google.com/file/d/1q5eOxc-cNT1YXV2eVG8jqZBLsPEQ2_Ld/view?usp=sharing and unpack to a desired directory.
 * To get the information approximation we use in our work, first save all tokens of a wanted corpus into a file TOKENS_FILE. This should be done by simply running the tokenizer on the data's line, and writing each token to a file on it's own line. Then run the following from the project's root directory:
 ```
 python data/info_analysis.py -t TOKENS_FILE
 ```
-This returns the total number of tokens, followed by unique number of tokens and the ratio of both.
+* This returns the total number of tokens, followed by unique number of tokens and the ratio of both.
 An example of such processed tokens file is:
 ```
 he
@@ -58,14 +58,14 @@ llo
 world
 world
 ```
-Running the script with this file will output: 
+* Running the script with this file will output: 
 ```
 python data/info_analysis.py -t data/example_files/example_tokens.txt
 ...
 INFO:root:total tokens:6, unique tokens:3, ratio:0.5
 ```
 
-## Training Our models
+## Training from Scratch
 
 *Before you start: training configurations*
 
