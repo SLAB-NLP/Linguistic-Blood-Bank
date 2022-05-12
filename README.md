@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 Tested on python 3.7.
 
-## Reproducing Evaluations with Pretrained Models
+### Rerun Evaluations with Pretrained Models
 
 * Download the processed wikipedia data at https://drive.google.com/file/d/1q5eOxc-cNT1YXV2eVG8jqZBLsPEQ2_Ld/view?usp=sharing and unpack to a desired directory.
 * To get the information approximation we use in our work, first save all tokens of a wanted corpus into a file TOKENS_FILE. This should be done by simply running the tokenizer on the data's line, and writing each token to a file on it's own line. Then run the following from the project's root directory:
@@ -65,7 +65,7 @@ python data/info_analysis.py -t data/example_files/example_tokens.txt
 INFO:root:total tokens:6, unique tokens:3, ratio:0.5
 ```
 
-## Training from Scratch
+### Training from Scratch
 
 *Before you start: training configurations*
 
@@ -125,17 +125,17 @@ Arguments to define the training pipeline and model parameters (the names of the
     '--pt_name',type=str
     '--ft_name',type=str
 ```
-### Tokenizer
+#### Tokenizer
 train a BertWordPieceTokenizer from the tokenizers library (transformers by Huggingface) on your desired data. All desired languages should be included here. 
 
-### Base model 
+#### Base model 
 to train a base model run the following script from your root directory:
 ```
 bash src/scripts/train_pretrained.sh PRETRAIN_SOURCE_NAME MODEL_CONFIG_PATH PRETRAIN_CONFIG_PATH OUTPUT_DIR SEED
 ```
 This will output a model specified by  MODEL_CONFIG_PATH & PRETRAIN_CONFIG_PATH into OUTPUT_DIR/PRETRAIN_SOURCE_NAME/PRETRAIN_SOURCE_NAME_SEED
 
-### Finetuned model on top of an existing one
+#### Finetuned model on top of an existing one
 To train a finetuned mlm model on top of the previously trained model in OUTPUT_DIR/PRETRAIN_SOURCE_NAME/PRETRAIN_MODEL_NAME_SEED, run the following from your root directory:
 ```
 bash src/scripts/train_finetuned.sh PRETRAIN_SOURCE_NAME FINETUNED_TARGET_NAME PRETRAIN_CONFIG_PATH FINETUNE_CONFIG_PATH MODEL_CONFIG_PATH OUTPUT_DIR SEED
@@ -149,13 +149,13 @@ bash src/scripts/train_pretrained.sh ru MODEL_CONFIG_PATH PRETRAIN_CONFIG_PATH O
 bash src/scripts/train_finetuned.sh ru ar PRETRAIN_CONFIG_PATH FINETUNE_CONFIG_PATH MODEL_CONFIG_PATH OUTPUT_DIR 10 >> OUTPUT_DIR/ru/ar_10/* 
 ```
 
-### Evaluate MRR
+#### Evaluate MRR
 Given a model saved in MODEL_DIR_PATH and defined by the mentioned config file at MODEL_CONFIG_PATH, to evaluate its performance on a given data EVAL_DATA and save the data in OUTPUT_DIR_PATH, run the following script from the root directory:
 ```
 bash src/scripts/eval_model_mrr.sh MODEL_DIR_PATH MODEL_CONFIG_PATH EVAL_DATA OUTPUT_DIR_PATH
 ```
 
-## Downstream training
+### Downstream training
 
 To train the downstream task ontop of a given langauge model, follow the instructions at: https://github.com/google-research/xtreme .
 
