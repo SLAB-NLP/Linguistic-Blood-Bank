@@ -25,7 +25,7 @@ NAACL 2022.
 
 ## Interactive-Exploration
 
-<b>To view and interact with our results:</b> visit [this url](https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py). 
+[Click here to view and interact with our results](https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py). 
 
 If you want to deploy this server locally, see [instructions here](running_sever_locally.md)
 
