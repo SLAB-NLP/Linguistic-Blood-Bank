@@ -6,13 +6,13 @@
   - [Interactive-Exploration](#interactive-exploration)
   - [Reproducing our results](#reproducing-our-results)
     - [Installation and Requirements](#installation-and-requirements)
-  - [Reproducing Evaluations with Pretrained Models](#reproducing-evaluations-with-pretrained-models)
-  - [Training from Scratch](#training-from-scratch)
-    - [Tokenizer](#tokenizer)
-    - [Base model](#base-model)
-    - [Finetuned model on top of an existing one](#finetuned-model-on-top-of-an-existing-one)
-    - [Evaluate MRR](#evaluate-mrr)
-  - [Downstream training](#downstream-training)
+    - [Rerun Evaluations with Pretrained Models](#rerun-evaluations-with-pretrained-models)
+    - [Training from Scratch](#training-from-scratch)
+      - [Tokenizer](#tokenizer)
+      - [Base model](#base-model)
+      - [Finetuned model on top of an existing one](#finetuned-model-on-top-of-an-existing-one)
+      - [Evaluate MRR](#evaluate-mrr)
+    - [Downstream training](#downstream-training)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
