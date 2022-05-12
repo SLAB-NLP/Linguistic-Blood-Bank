@@ -23,14 +23,14 @@ the Linguistic Blood Bank](https://arxiv.org/abs/2205.04086) <br>
 _Dan Malkin, [Tomasz Limisiewicz](https://tomlimi.github.io/), [Gabriel Stanovsky](https://gabrielstanovsky.github.io/)_, <br>
 NAACL 2022.
 
-## Interactive-Exploration
+## 📊 Interactive-Exploration
 
 [Click here to view and interact with our results](https://share.streamlit.io/dnmh/language-graph/code_cleanup/visualization_tool/launch_interface.py). 
 
 If you want to deploy this server locally, see [instructions here](running_sever_locally.md)
 
 
-## Reproducing our results
+## 🏃 Reproducing our results
 
 ### Installation and Requirements
 
